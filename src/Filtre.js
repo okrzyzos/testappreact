@@ -280,7 +280,7 @@ const [togglePrixMax, setTogglePrixMax] = useState(false);
         <button onClick={() => handleClickButton("Afficher la totalité des prix")}>Afficher la totalité des prix</button>
         <button onClick={() => handleClickButton("Afficher le prix max")}>Afficher le prix max</button>
       </div>
-      {toggleNomOlivier && <div>Résultat pour le nom Olivier : <strong>{result}</strong></div>}
+      {toggleNomOlivier && <div>Résultat pour le name Olivier : <strong>{result}</strong></div>}
 {togglePrixSup3000 && <div>Résultat pour le prix sup 3000 : <strong>{result}</strong></div>}
 {togglePuissanceInf500 && <div>Résultat pour la puissance inf 500 : <strong>{result}</strong></div>}
 {toggleTotalitePrix && <div>Résultat pour la totalité des prix :<strong>{result}</strong></div>}
