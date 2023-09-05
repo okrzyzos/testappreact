@@ -30,7 +30,7 @@ const [togglePrixMax, setTogglePrixMax] = useState(false);
 
   const handleClickButton = (action) => {
     switch (action) {
-      case "Afficher le nom olivier":
+      case "Afficher le name olivier":
         setToggleNomOlivier(!toggleNomOlivier);
         setResult(data.find((item) => item.name === "olivier").name);
         break;
@@ -274,7 +274,7 @@ const [togglePrixMax, setTogglePrixMax] = useState(false);
           marginRight: "10px",
         }}
       >
-     <button onClick={() => handleClickButton("Afficher le nom olivier")}>Afficher le nom olivier</button>
+     <button onClick={() => handleClickButton("Afficher le name olivier")}>Afficher le name olivier</button>
         <button onClick={() => handleClickButton("Afficher le prix sup 3000")}>Afficher le prix sup 3000</button>
         <button onClick={() => handleClickButton("Afficher la puissance inf 500")}>Afficher la puissance inf 500</button>
         <button onClick={() => handleClickButton("Afficher la totalité des prix")}>Afficher la totalité des prix</button>
