@@ -106,3 +106,9 @@
     background-color: white;
     padding: 5px; /* Espacement interne */
   }
+
+  .text-raccourci {
+    overflow: hidden;           /* Masque tout texte qui dépasse du conteneur */
+    text-overflow: ellipsis;    /* Ajoute des points de suspension (...) à la fin du texte */
+    width: 750px;               /* Largeur du conteneur (ajustez selon vos besoins) */
+  }
