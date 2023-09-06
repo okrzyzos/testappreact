@@ -24,7 +24,13 @@ function NadalProfil() {
             voire des phrases embarrassantes).
           </p>
         </div>
+      
       </div>
+      <div style={{marginTop:"30px",marginLeft:"30px"}}>
+      <img className='image' src="https://media.gqmagazine.fr/photos/61fd351b6ec921138030b1c1/16:9/w_2560%2Cc_limit/Nadal-Routine.jpg"
+        alt="Rafael Nadal 1" />
+      </div>
+    
     </div>
   );
 }
