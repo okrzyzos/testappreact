@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Filtre.css";
 import YouTube from "react-youtube";
 import { FaTimes } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 
 function Filtre() {
   const [showNadalImages, setShowNadalImages] = useState(false);
@@ -12,10 +13,11 @@ function Filtre() {
   const [searchTerm, setSearchTerm] = useState("");
   const [showMessage, setShowMessage] = useState(false);
   const [toggleNomOlivier, setToggleNomOlivier] = useState(false);
-const [togglePrixSup3000, setTogglePrixSup3000] = useState(false);
-const [togglePuissanceInf500, setTogglePuissanceInf500] = useState(false);
-const [toggleTotalitePrix, setToggleTotalitePrix] = useState(false);
-const [togglePrixMax, setTogglePrixMax] = useState(false);
+  const [togglePrixSup3000, setTogglePrixSup3000] = useState(false);
+  const [togglePuissanceInf500, setTogglePuissanceInf500] = useState(false);
+  const [toggleTotalitePrix, setToggleTotalitePrix] = useState(false);
+  const [togglePrixMax, setTogglePrixMax] = useState(false);
+  const navigate = useNavigate();
 
   const personnages = [
     { id: 1, name: "olivier", puissance: 100, prix: 2000 },
@@ -27,6 +29,23 @@ const [togglePrixMax, setTogglePrixMax] = useState(false);
   ];
   const [data] = useState(personnages);
   const [result, setResult] = useState("");
+
+  // function handleClickButtonProfil(profileName) {
+  //   // Utilisez la fonction navigate pour rediriger vers le profil approprié
+  //   if (profileName === "Nadal") {
+  //     navigate("/nadal"); // Redirige vers le profil de Nadal
+  //   } else if (profileName === "Alcaraz") {
+  //     navigate("/alcaraz"); // Redirige vers le profil d'Alcaraz
+  //   }
+  // }
+
+  const openNadalProfile = () => {
+    window.open("/nadal", "_blank");
+  };
+
+  const openAlcarazProfile = () => {
+    window.open("/alcaraz", "_blank");
+  };
 
   const handleClickButton = (action) => {
     switch (action) {
@@ -51,7 +70,10 @@ const [togglePrixMax, setTogglePrixMax] = useState(false);
         break;
       case "Afficher le prix max":
         setTogglePrixMax(!togglePrixMax);
-        const prixMax = data.reduce((max, item) => Math.max(max, item.prix), -Infinity);
+        const prixMax = data.reduce(
+          (max, item) => Math.max(max, item.prix),
+          -Infinity
+        );
         setResult(`Le prix maximum est de : ${prixMax}`);
         break;
       default:
@@ -274,19 +296,57 @@ const [togglePrixMax, setTogglePrixMax] = useState(false);
           marginRight: "10px",
         }}
       >
-     <button onClick={() => handleClickButton("Afficher le name olivier")}>Afficher le name olivier</button>
-        <button onClick={() => handleClickButton("Afficher le prix sup 3000")}>Afficher le prix sup 3000</button>
-        <button onClick={() => handleClickButton("Afficher la puissance inf 500")}>Afficher la puissance inf 500</button>
-        <button onClick={() => handleClickButton("Afficher la totalité des prix")}>Afficher la totalité des prix</button>
-        <button onClick={() => handleClickButton("Afficher le prix max")}>Afficher le prix max</button>
+        <button onClick={() => handleClickButton("Afficher le name olivier")}>
+          Afficher le name olivier
+        </button>
+        <button onClick={() => handleClickButton("Afficher le prix sup 3000")}>
+          Afficher le prix sup 3000
+        </button>
+        <button
+          onClick={() => handleClickButton("Afficher la puissance inf 500")}
+        >
+          Afficher la puissance inf 500
+        </button>
+        <button
+          onClick={() => handleClickButton("Afficher la totalité des prix")}
+        >
+          Afficher la totalité des prix
+        </button>
+        <button onClick={() => handleClickButton("Afficher le prix max")}>
+          Afficher le prix max
+        </button>
+        <button onClick={openNadalProfile}>
+            Afficher le profil de Nadal
+          </button>
+        <button onClick={openAlcarazProfile}>
+            Afficher le profil d'Alcaraz
+          </button>
       </div>
-      {toggleNomOlivier && <div>Résultat pour le name Olivier : <strong>{result}</strong></div>}
-{togglePrixSup3000 && <div>Résultat pour le prix sup 3000 : <strong>{result}</strong></div>}
-{togglePuissanceInf500 && <div>Résultat pour la puissance inf 500 : <strong>{result}</strong></div>}
-{toggleTotalitePrix && <div>Résultat pour la totalité des prix :<strong>{result}</strong></div>}
-{togglePrixMax && <div>Résultat pour le prix max : <strong>{result}</strong></div>}
-
-
+      {toggleNomOlivier && (
+        <div>
+          Résultat pour le name Olivier : <strong>{result}</strong>
+        </div>
+      )}
+      {togglePrixSup3000 && (
+        <div>
+          Résultat pour le prix sup 3000 : <strong>{result}</strong>
+        </div>
+      )}
+      {togglePuissanceInf500 && (
+        <div>
+          Résultat pour la puissance inf 500 : <strong>{result}</strong>
+        </div>
+      )}
+      {toggleTotalitePrix && (
+        <div>
+          Résultat pour la totalité des prix :<strong>{result}</strong>
+        </div>
+      )}
+      {togglePrixMax && (
+        <div>
+          Résultat pour le prix max : <strong>{result}</strong>
+        </div>
+      )}
 
       {showNadalVideos && (
         <div className="videos-container">
